@@ -1,0 +1,23 @@
+name: My First Action
+
+on:
+  push:
+
+jobs:
+  hello:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Say Hello
+        run: echo "Hello Ankit"
+
+      - name: Show Python version
+        run: python --version
+
+      - name: Show files
+        run: ls
