@@ -15,7 +15,9 @@ jobs:
 
     steps:
       - name: Show input
-        run: echo "Environment: ${{ inputs.environment }}"
+        env:
+          ENVIRONMENT_INPUT: ${{ inputs.environment }}
+        run: echo "Environment- $ENVIRONMENT_INPUT"
 
       - name: Checkout code
         uses: actions/checkout@v4
