@@ -10,12 +10,12 @@ on:
 
 jobs:
   build:
-    if: ${{ github.event.inputs.environment != '' }}
+    if: ${{ inputs.environment != '' }}
     runs-on: ubuntu-latest
 
     steps:
       - name: Show input
-        run: echo "Environment: ${{ github.event.inputs.environment }}"
+        run: echo "Environment: ${{ inputs.environment }}"
 
       - name: Checkout code
         uses: actions/checkout@v4
