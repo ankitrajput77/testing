@@ -2,12 +2,21 @@ name: Manual CI
 
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        description: "Enter environment"
+        required: false
+        type: string
 
 jobs:
   build:
+    if: ${{ github.event.inputs.environment != '' }}
     runs-on: ubuntu-latest
 
     steps:
+      - name: Show input
+        run: echo "Environment: ${{ github.event.inputs.environment }}"
+
       - name: Checkout code
         uses: actions/checkout@v4
 
